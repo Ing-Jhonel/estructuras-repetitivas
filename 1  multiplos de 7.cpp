@@ -1,19 +1,20 @@
 #include <iostream>
 using namespace std;
 // Diseñar un algoritmo que imprima en la pantalla los primeros “n” múltiplos de 7 (positivos mayores que cero) 
-// ENTRADA: pn: primeros "n" numeros
+// ENTRADA: primerosnmultiplos: primeros "n" numeros
 // SALIDA: mult1, mult2 ... multn: "n" multiplos de 7
 int main (){
 	
-	int pn, mult;
+	int primerosnmultiplos, multiplico;
 	cout << "Indique cuantos primeros multiplos de n quiere ver: ";
-	cin >> pn;
+	cin >> primerosnmultiplos;
+	cout << endl;
 	
 	int i = 0;
-	while (i < pn){
-		i = i + 1;
-		mult = 7*i;
-		cout << i << ". multiplo de 7 es: " << mult << endl;
+	while (i < primerosnmultiplos){
+		i++;
+		multiplico = 7*i;
+		cout << i << ". multiplo de 7 es: " << multiplico << endl;
 	}
 	return 0;
 }
