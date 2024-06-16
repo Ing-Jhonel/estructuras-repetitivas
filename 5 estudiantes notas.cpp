@@ -8,51 +8,57 @@ using namespace std;
 
 int main (){
 	
-	float cn, n, a=0, d=0, s=0, prom;
-	char r;
+	float numeroestudiantes, nota, aprobados=0, desaprobados=0, suma=0, promedio, totalestudiantes;
+	char respuesta;
 	
 	cout << "Indique la cantidad de estudiantes a anotar: ";
-	cin >> cn;
+	cin >> numeroestudiantes;
 	cout << endl;
-	
-	int i = 0;
-	while (i < cn){
-		i= i + 1;
+	int i=1;
+	for(; i<=numeroestudiantes; i++){
 		cout << i << ". Estudiante: ";
-		cin >> n;
-		s = s + n;
-		if (n >= 10.5){
-			a = a + 1;
+		cin >> nota;
+		suma=suma+nota;
+		if (nota >= 10.5){
+			aprobados=aprobados+1;
 		} else{
-			d = d + 1;
-		}		
+			desaprobados=desaprobados+1;
+		}			
 	}
-	
+		cout << endl;
 		cout << "¿Desea anotar mas estudiantes? (s/n): ";
-		cin >> r;
-		if (r == 's'){
+		cin >> respuesta;
+		int aux=i;
+		if (respuesta == 's'){
 			do{
-				cout << "Ingrese la nota: ";
-				cin >> n;
-				s = s + n;
-				
-				if (n >= 10.5){
-					a = a + 1;
-				} else{
-					d = d + 1;
+				cout << endl;
+				cout << "Indique la cantidad de estudiantes a anotar: ";
+				cin >> numeroestudiantes;
+				cout << endl;
+				for(int j=1; j<=numeroestudiantes; j++){
+					// Creo aux para que al poner "i. Estudiante" se incremente el numero por cada iteracion, por cada estudiante, con
+					// el fin de no afectar i.
+					cout << aux << ". Estudiante: ";
+					cin >> nota;
+					suma=suma+nota;
+					if (nota >= 10.5){
+						aprobados=aprobados+1;
+					} else{
+						desaprobados=desaprobados+1;
+					}
+					aux++;
 				}
-				
+				cout << endl;	
 				cout << "¿Desea anotar mas estudiantes? (s/n): ";
-				cin >> r;
-				i= i + 1;
-			} while (r == 's');
+				cin >> respuesta;
+			} while (respuesta == 's');
 		} 
-		
-		
-		prom = s/i;
-		cout << "El promedio de notas de los " << i << " estudiantes es: " << prom << endl;
-		cout << "De los " << i << " estudiantes, " << a << " aprobaron." << endl;
-		cout << "De los " << i << " estudiantes, " << d << " desaprobaron." << endl;
+		cout << endl;
+		totalestudiantes=aux-1;
+		promedio = suma/totalestudiantes;
+		cout << "El promedio de notas de los " << totalestudiantes << " estudiantes es: " << promedio << endl;
+		cout << "De los " << totalestudiantes << " estudiantes, " << aprobados << " aprobaron." << endl;
+		cout << "De los " << totalestudiantes << " estudiantes, " << desaprobados << " desaprobaron." << endl;
 		
 	return 0;
 }
